@@ -1,0 +1,182 @@
+/* ==========================================================================
+   DIVISAR STORE — Responsive Stylesheet
+   Breakpoints: 1920px, 1440px, 1280px, 1024px, 834px, 768px, 480px, 430px, 390px, 375px, 360px, 320px
+   ========================================================================== */
+
+/* Large Desktop (1440px +) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1380px;
+  }
+}
+
+/* Standard Desktop (1025px - 1280px) */
+@media (max-width: 1280px) {
+  .desktop-nav {
+    gap: 1.25rem;
+  }
+  .nav-link {
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Tablet & Mobile Breakpoint (<= 1024px) */
+@media (max-width: 1024px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-menu-trigger {
+    display: flex;
+  }
+  .header-cta-btn {
+    display: none;
+  }
+  
+  .intro-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .intro-media {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .cost-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .sustainability-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .coming-soon-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .journal-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Medium Tablet & Mobile (<= 768px) */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 0.75rem 0;
+  }
+  
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  .pillars-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .cost-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .sustainability-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .coming-soon-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .journal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-top {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  
+  .pillar-detail-card {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .pillar-detail-number {
+    font-size: 2rem;
+  }
+  
+  /* Show mobile bottom navigation bar */
+  .mobile-bottom-bar {
+    display: flex;
+  }
+  
+  /* Ensure page content has bottom padding so floating bottom bar doesn't overlap footer */
+  body {
+    padding-bottom: 64px;
+  }
+  
+  /* Floating back to top FAB positioning on mobile right bottom */
+  .back-to-top-fab {
+    bottom: 78px !important;
+    right: 20px !important;
+    width: 46px !important;
+    height: 46px !important;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .container, .container-narrow {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+
+  .trust-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .newsletter-form {
+    flex-direction: column !important;
+  }
+  
+  .newsletter-input, .newsletter-btn {
+    width: 100% !important;
+  }
+  
+  .etymology-equation {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  .etym-operator {
+    display: none;
+  }
+}
+
+/* Extra Small Mobile (320px - 390px) */
+@media (max-width: 390px) {
+  .brand-logo-img {
+    height: 36px;
+  }
+  
+  .hero-headline {
+    font-size: 2.1rem !important;
+  }
+  
+  .page-hero-title {
+    font-size: 2.1rem !important;
+  }
+}
+
+/* Universal Media Safeguard — No Horizontal Overflow */
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+body, html {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+}

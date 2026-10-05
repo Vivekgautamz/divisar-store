@@ -1,1 +1,7 @@
-.vercel
+node_modules/
+.vercel/
+scratch/
+.DS_Store
+Thumbs.db
+.env
+.env.*

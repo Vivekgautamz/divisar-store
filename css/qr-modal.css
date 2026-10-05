@@ -1,0 +1,184 @@
+/* ==========================================================================
+   DIVISAR STORE — Fixed Viewport QR Code Modal (No Page Scroll / Lock)
+   ========================================================================== */
+
+/* Fixed Fullscreen Viewport Overlay */
+.qr-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(5, 20, 12, 0.72);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms ease;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overscroll-behavior: none;
+}
+
+.qr-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Centered Viewport Dialog Box */
+.qr-modal-container {
+  position: relative;
+  z-index: 100000;
+  background-color: var(--color-bg, #fdfbf7);
+  border: 1.5px solid var(--color-gold, #c5a059);
+  border-radius: var(--radius-md, 12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 30px rgba(197, 160, 89, 0.25);
+  padding: 2.25rem 2rem 2rem;
+  text-align: center;
+  width: min(850px, calc(100vw - 40px));
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 250ms ease, transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.qr-modal-overlay.active .qr-modal-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Close Button (Top-Right X) */
+.qr-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background: var(--color-gold-soft, #faf4e8);
+  color: var(--color-primary-dark, #0e1e12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  border: 1px solid var(--color-gold-border, rgba(197, 160, 89, 0.35));
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease, color 200ms ease;
+  z-index: 2;
+}
+
+.qr-modal-close:hover {
+  background-color: var(--color-gold, #c5a059);
+  color: var(--color-primary-dark, #0e1e12);
+  transform: scale(1.06);
+}
+
+.qr-modal-close:focus-visible {
+  outline: 2px solid var(--color-gold, #c5a059);
+  outline-offset: 2px;
+}
+
+/* Header & Typography */
+.qr-modal-title {
+  font-family: var(--font-serif, serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--color-primary-dark, #0e1e12);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.qr-modal-subtitle {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  color: var(--color-text-muted, #5e665f);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Large Sharp QR Image Container */
+.qr-modal-image-wrap {
+  display: inline-block;
+  padding: 1.25rem;
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-gold-border, rgba(197, 160, 89, 0.35));
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(14, 30, 18, 0.06);
+  margin-bottom: 1.25rem;
+}
+
+.qr-modal-image {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Domain Text */
+.qr-modal-domain {
+  font-family: var(--font-sans, sans-serif);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  color: var(--color-primary-dark, #0e1e12);
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+/* Action Buttons Grid */
+.qr-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.qr-modal-actions .btn {
+  font-size: 0.78rem;
+  padding: 0.65rem 1.25rem;
+  min-height: 42px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .qr-modal-container {
+    width: calc(100vw - 32px);
+    max-height: calc(100vh - 32px);
+    padding: 1.75rem 1.15rem 1.5rem;
+  }
+
+  .qr-modal-image {
+    max-width: 220px;
+  }
+
+  .qr-modal-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .qr-modal-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Reduced Motion Safeguard */
+@media (prefers-reduced-motion: reduce) {
+  .qr-modal-overlay,
+  .qr-modal-container,
+  .qr-modal-close {
+    transition: none !important;
+    animation: none !important;
+  }
+}
